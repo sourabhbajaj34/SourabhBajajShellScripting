@@ -1,0 +1,605 @@
+[admin@hostname01 Desktop]$ sudo su -
+[sudo] password for admin: 
+[root@hostname01 ~]# pwd
+/root
+[root@hostname01 ~]# echo $HOME
+/root
+[root@hostname01 ~]# whoami
+root
+[root@hostname01 ~]# ls -a
+.   anaconda-ks.cfg  .bash_logout   .bashrc  .config  Desktop    Downloads  Music     Public  .tcshrc    Videos    .xauth1xf4ei
+..  .bash_history    .bash_profile  .cache   .cshrc   Documents  .local     Pictures  .ssh    Templates  .viminfo  .xauth99ktkI
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[root@hostname01 ~]# cd ..
+[root@hostname01 /]# ls
+afs  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@hostname01 /]# ls -a
+.  ..  afs  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@hostname01 /]# ls chap[0-9a-z]*
+ls: cannot access 'chap[0-9a-z]*': No such file or directory
+[root@hostname01 /]# mkdir $HOME/C_prog
+[root@hostname01 /]# ls $HOME
+anaconda-ks.cfg  C_prog  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[root@hostname01 /]# mkdir $HOME/newdir $HOME/newdirectory
+[root@hostname01 /]# ls $HOME
+anaconda-ks.cfg  C_prog  Desktop  Documents  Downloads  Music  newdir  newdirectory  Pictures  Public  Templates  Videos
+[root@hostname01 /]# ls -R $HOME
+/root:
+anaconda-ks.cfg  C_prog  Desktop  Documents  Downloads  Music  newdir  newdirectory  Pictures  Public  Templates  Videos
+
+/root/C_prog:
+
+/root/Desktop:
+
+/root/Documents:
+
+/root/Downloads:
+
+/root/Music:
+
+/root/newdir:
+
+/root/newdirectory:
+
+/root/Pictures:
+
+/root/Public:
+
+/root/Templates:
+
+/root/Videos:
+[root@hostname01 /]# rmdir newdirectory
+rmdir: failed to remove 'newdirectory': No such file or directory
+[root@hostname01 /]# pwd
+/
+[root@hostname01 /]# cd home/
+[root@hostname01 home]# ls
+admin  vinsys
+[root@hostname01 home]# cd ..
+[root@hostname01 /]# cd root/
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Desktop    Downloads  newdir        Pictures  Templates
+C_prog           Documents  Music      newdirectory  Public    Videos
+[root@hostname01 ~]# rmdir newdirectory
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Desktop    Downloads  newdir    Public     Videos
+C_prog           Documents  Music      Pictures  Templates
+[root@hostname01 ~]# mkdir $HOME/temp
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Desktop    Downloads  newdir    Public  Templates
+C_prog           Documents  Music      Pictures  temp    Videos
+[root@hostname01 ~]# rmdir $HOME/newdir
+[root@hostname01 ~]# ls $HOME
+anaconda-ks.cfg  Desktop    Downloads  Pictures  temp       Videos
+C_prog           Documents  Music      Public    Templates
+[root@hostname01 ~]# mkdir $HOME/temp/directorynew
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Desktop    Downloads  Pictures  temp       Videos
+C_prog           Documents  Music      Public    Templates
+[root@hostname01 ~]# cd temp/
+[root@hostname01 temp]# ls
+directorynew
+[root@hostname01 temp]# cd $HOME
+[root@hostname01 ~]# cd temp/directorynew
+[root@hostname01 directorynew]# rmdir $HOME/C_prog
+[root@hostname01 directorynew]# cd /etc
+[root@hostname01 etc]# ls
+accountsservice          gshadow                   popt.d
+adjtime                  gshadow-                  printcap
+aliases                  gss                       profile
+alsa                     host.conf                 profile.d
+alternatives             hostname                  protocols
+anacrontab               hosts                     pulse
+appstream.conf           hp                        qemu-ga
+asound.conf              inittab                   ras
+at.deny                  inputrc                   rc.d
+audit                    iproute2                  rc.local
+authselect               iscsi                     redhat-release
+avahi                    issue                     request-key.conf
+bash_completion.d        issue.d                   request-key.d
+bashrc                   issue.net                 resolv.conf
+bindresvport.blacklist   kdump                     rpc
+binfmt.d                 kdump.conf                rpm
+bluetooth                kernel                    rsyncd.conf
+brlapi.key               keys                      rsyslog.conf
+brltty                   keyutils                  rsyslog.d
+brltty.conf              krb5.conf                 rwtab.d
+centos-release           krb5.conf.d               samba
+chromium                 ld.so.cache               sane.d
+chrony.conf              ld.so.conf                sasl2
+chrony.keys              ld.so.conf.d              security
+cifs-utils               libaudit.conf             selinux
+cni                      libblockdev               services
+cockpit                  libibverbs.d              sestatus.conf
+containers               libnl                     setroubleshoot
+cron.d                   libpaper.d                sgml
+cron.daily               libreport                 shadow
+cron.deny                libssh                    shadow-
+cron.hourly              libuser.conf              shells
+cron.monthly             locale.conf               skel
+crontab                  localtime                 smartmontools
+cron.weekly              login.defs                sos
+crypto-policies          logrotate.conf            speech-dispatcher
+crypttab                 logrotate.d               ssh
+csh.cshrc                lsm                       ssl
+csh.login                lvm                       sssd
+cups                     machine-id                statetab.d
+cupshelpers              machine-info              subgid
+dbus-1                   magic                     subgid-
+dconf                    mailcap                   subuid
+debuginfod               makedumpfile.conf.sample  subuid-
+default                  man_db.conf               sudo.conf
+depmod.d                 mcelog                    sudoers
+dhcp                     microcode_ctl             sudoers.d
+DIR_COLORS               mime.types                sudo-ldap.conf
+DIR_COLORS.lightbgcolor  mke2fs.conf               sysconfig
+dnf                      modprobe.d                sysctl.conf
+dnsmasq.conf             modules-load.d            sysctl.d
+dnsmasq.d                motd                      systemd
+dracut.conf              motd.d                    system-release
+dracut.conf.d            mtab                      system-release-cpe
+egl                      multipath                 terminfo
+enscript.cfg             nanorc                    tmpfiles.d
+environment              netconfig                 tpm2-tss
+ethertypes               NetworkManager            trusted-key.key
+exports                  networks                  tuned
+favicon.png              nftables                  udev
+filesystems              nsswitch.conf             udisks2
+firefox                  nsswitch.conf.bak         updatedb.conf
+firewalld                nvme                      UPower
+flatpak                  openldap                  usb_modeswitch.conf
+fonts                    opt                       vconsole.conf
+foomatic                 os-release                vimrc
+fprintd.conf             ostree                    virc
+fstab                    PackageKit                vmware-tools
+fuse.conf                pam.d                     vulkan
+fwupd                    papersize                 wgetrc
+gcrypt                   passwd                    wireplumber
+gdm                      passwd-                   wpa_supplicant
+geoclue                  pbm2ppa.conf              X11
+glvnd                    pinforc                   xattr.conf
+gnupg                    pkcs11                    xdg
+GREP_COLORS              pkgconfig                 xml
+groff                    pki                       yum
+group                    plymouth                  yum.conf
+group-                   pm                        yum.repos.d
+grub2.cfg                pnm2ppa.conf
+grub.d                   polkit-1
+[root@hostname01 etc]# ls -a /usr/bin | grep "^\."
+.
+..
+[root@hostname01 etc]# cat > first.unix <<EOF
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+EOF
+[root@hostname01 etc]# cp $HOME/first.unix $HOME/first.unics
+cp: cannot stat '/root/first.unix': No such file or directory
+[root@hostname01 etc]# cp $HOME/first.unix $HOME/first.unics
+cp: cannot stat '/root/first.unix': No such file or directory
+[root@hostname01 etc]# cd $HOME
+[root@hostname01 ~]# cp $HOME/first.unix $HOME/first.unics
+cp: cannot stat '/root/first.unix': No such file or directory
+[root@hostname01 ~]# cat > first.unix <<EOF
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+EOF
+[root@hostname01 ~]# cp $HOME/first.unix $HOME/first.unics
+[root@hostname01 ~]# cat $HOME/first.unix $HOME/first.unics
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+Hi! Good Morning everybody.
+Welcome to the First exercise on UNIX.
+Hope you enjoy doing the assignments.
+[root@hostname01 ~]# mkdir $HOME/temp/newsubdir
+[root@hostname01 ~]# cp $HOME/* $HOME/temp/newsubdir
+cp: -r not specified; omitting directory '/root/Desktop'
+cp: -r not specified; omitting directory '/root/Documents'
+cp: -r not specified; omitting directory '/root/Downloads'
+cp: -r not specified; omitting directory '/root/Music'
+cp: -r not specified; omitting directory '/root/Pictures'
+cp: -r not specified; omitting directory '/root/Public'
+cp: -r not specified; omitting directory '/root/temp'
+cp: -r not specified; omitting directory '/root/Templates'
+cp: -r not specified; omitting directory '/root/Videos'
+[root@hostname01 ~]# mv $HOME/first.unix $HOME/temp/second.unix
+[root@hostname01 ~]# rm $HOME/first.unics 
+rm: remove regular file '/root/first.unics'? y
+[root@hostname01 ~]# cd $HOME/temp
+[root@hostname01 temp]# rm *
+rm: cannot remove 'directorynew': Is a directory
+rm: cannot remove 'newsubdir': Is a directory
+rm: remove regular file 'second.unix'? mv *[aco] $HOME
+[root@hostname01 temp]# mv *[aco] $HOME
+mv: cannot stat '*[aco]': No such file or directory
+[root@hostname01 temp]# cd $HOME
+[root@hostname01 ~]# mv *[aco] $HOME
+mv: 'Music' and '/root/Music' are the same file
+mv: 'Public' and '/root/Public' are the same file
+[root@hostname01 ~]# cp *UNIX $HOME/temp
+cp: cannot stat '*UNIX': No such file or directory
+[root@hostname01 ~]# cd temp/
+[root@hostname01 temp]# cp *UNIX $HOME/temp
+cp: cannot stat '*UNIX': No such file or directory
+[root@hostname01 temp]# rm -r $HOME/temp
+rm: descend into directory '/root/temp'? y
+rm: remove directory '/root/temp/directorynew'? y
+rm: descend into directory '/root/temp/newsubdir'? y
+rm: remove regular file '/root/temp/newsubdir/anaconda-ks.cfg'? y
+rm: remove regular file '/root/temp/newsubdir/first.unics'? y
+rm: remove regular file '/root/temp/newsubdir/first.unix'? y
+rm: remove directory '/root/temp/newsubdir'? y
+rm: remove regular file '/root/temp/second.unix'? y
+rm: remove directory '/root/temp'? y
+[root@hostname01 temp]# y
+bash: y: command not found...
+[root@hostname01 temp]# cp
+cp: missing file operand
+Try 'cp --help' for more information.
+[root@hostname01 temp]# mv
+mv: missing file operand
+Try 'mv --help' for more information.
+[root@hostname01 temp]# cat > friends <<EOF
+Madhu    6966456    09/07/68
+Jamil    2345215    08/09/67
+Ajay     5546785    01/04/66
+Mano     7820022    09/07/68
+David    8281292    09/09/60
+Simmi    7864563    12/12/70
+Navin    2224311    30/05/68
+EOF
+-bash: friends: No such file or directory
+[root@hostname01 temp]# cd ..
+[root@hostname01 ~]# cat > friends <<EOF
+Madhu    6966456    09/07/68
+Jamil    2345215    08/09/67
+Ajay     5546785    01/04/66
+Mano     7820022    09/07/68
+David    8281292    09/09/60
+Simmi    7864563    12/12/70
+Navin    2224311    30/05/68
+EOF
+[root@hostname01 ~]# cat friends 
+Madhu    6966456    09/07/68
+Jamil    2345215    08/09/67
+Ajay     5546785    01/04/66
+Mano     7820022    09/07/68
+David    8281292    09/09/60
+Simmi    7864563    12/12/70
+Navin    2224311    30/05/68
+[root@hostname01 ~]# cat friends > newfriend
+[root@hostname01 ~]# cat friends newfriend
+Madhu    6966456    09/07/68
+Jamil    2345215    08/09/67
+Ajay     5546785    01/04/66
+Mano     7820022    09/07/68
+David    8281292    09/09/60
+Simmi    7864563    12/12/70
+Navin    2224311    30/05/68
+Madhu    6966456    09/07/68
+Jamil    2345215    08/09/67
+Ajay     5546785    01/04/66
+Mano     7820022    09/07/68
+David    8281292    09/09/60
+Simmi    7864563    12/12/70
+Navin    2224311    30/05/68
+[root@hostname01 ~]# who > users
+[root@hostname01 ~]# cat friends >> users
+[root@hostname01 ~]# date
+Mon Jan 27 06:38:40 PM IST 2025
+[root@hostname01 ~]# cal <month> <year>
+-bash: syntax error near unexpected token `<'
+[root@hostname01 ~]# cal <MAY> <2002>
+-bash: syntax error near unexpected token `<'
+[root@hostname01 ~]# cal MAY 2002
+      May 2002      
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31   
+                    
+[root@hostname01 ~]# date "+%"
+date "+%m"
+date "+%D"
+date "+%/%Training Activity"
+date "+%Training Activity"
+date "+%r"
+%
+01
+01/27/25
+%/18:40:23raining Activity
+18:40:23raining Activity
+06:40:23 PM
+[root@hostname01 ~]# man ls > lsdoc
+[root@hostname01 ~]# more lsdoc 
+LS(1)                           User Commands                           LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).
+       Sort entries alphabetically if none of -cftuvSUX nor --sort is  speci-
+       fied.
+
+       Mandatory  arguments  to  long options are mandatory for short options
+       too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              with  -l,  scale  sizes  by  SIZE  when  printing  them;  e.g.,
+              '--block-size=M'; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+       -c     with  -lt:  sort by, and show, ctime (time of last modification
+              of file status information); with -l: show ctime  and  sort  by
+              name; otherwise: sort by ctime, newest first
+
+       -C     list entries by columns
+
+       --color[=WHEN]
+              colorize the output; WHEN can be 'always' (default if omitted),
+              'auto', or 'never'; more info below
+
+       -d, --directory
+              list directories themselves, not their contents
+
+       -D, --dired
+              generate output designed for Emacs' dired mode
+
+       -f     do not sort, enable -aU, disable -ls --color
+
+       -F, --classify
+              append indicator (one of */=>@|) to entries
+
+       --file-type
+              likewise, except do not append '*'
+
+       --format=WORD
+              across -x, commas -m, horizontal -x, long -l, single-column -1,
+              verbose -l, vertical -C
+
+       --full-time
+              like -l --time-style=full-iso
+
+       -g     like -l, but do not list owner
+
+       --group-directories-first
+              group directories before files;
+
+              can  be  augmented  with  a  --sort  option,  but  any  use  of
+              --sort=none (-U) disables grouping
+
+       -G, --no-group
+              in a long listing, don't print group names
+
+       -h, --human-readable
+              with -l and -s, print sizes like 1K 234M 2G etc.
+
+       --si   likewise, but use powers of 1000 not 1024
+
+       -H, --dereference-command-line
+              follow symbolic links listed on the command line
+
+       --dereference-command-line-symlink-to-dir
+              follow each command line symbolic link
+
+              that points to a directory
+
+       --hide=PATTERN
+              do not list implied entries matching shell PATTERN  (overridden
+              by -a or -A)
+
+       --hyperlink[=WHEN]
+              hyperlink  file  names;  WHEN can be 'always' (default if omit-
+              ted), 'auto', or 'never'
+
+       --indicator-style=WORD
+              append indicator with style WORD  to  entry  names:  none  (de-
+              fault), slash (-p), file-type (--file-type), classify (-F)
+
+       -i, --inode
+              print the index number of each file
+
+       -I, --ignore=PATTERN
+              do not list implied entries matching shell PATTERN
+
+       -k, --kibibytes
+              default  to  1024-byte blocks for disk usage; used only with -s
+              and per directory totals
+
+       -l     use a long listing format
+
+       -L, --dereference
+              when showing file information for a symbolic link, show  infor-
+              mation  for  the  file  the link references rather than for the
+              link itself
+
+       -m     fill width with a comma separated list of entries
+
+       -n, --numeric-uid-gid
+              like -l, but list numeric user and group IDs
+
+       -N, --literal
+              print entry names without quoting
+
+       -o     like -l, but do not list group information
+
+       -p, --indicator-style=slash
+              append / indicator to directories
+
+       -q, --hide-control-chars
+              print ? instead of nongraphic characters
+
+       --show-control-chars
+              show nongraphic characters as-is (the default,  unless  program
+              is 'ls' and output is a terminal)
+
+       -Q, --quote-name
+              enclose entry names in double quotes
+
+       --quoting-style=WORD
+              use quoting style WORD for entry names: literal, locale, shell,
+              shell-always,  shell-escape,  shell-escape-always,  c,   escape
+              (overrides QUOTING_STYLE environment variable)
+
+       -r, --reverse
+              reverse order while sorting
+
+       -R, --recursive
+              list subdirectories recursively
+
+       -s, --size
+              print the allocated size of each file, in blocks
+
+       -S     sort by file size, largest first
+
+       --sort=WORD
+              sort  by WORD instead of name: none (-U), size (-S), time (-t),
+              version (-v), extension (-X)
+
+       --time=WORD
+              change the default of using  modification  times;  access  time
+              (-u):  atime,  access,  use;  change  time (-c): ctime, status;
+              birth time: birth, creation;
+
+              with -l, WORD determines which time to show; with  --sort=time,
+              sort by WORD (newest first)
+
+       --time-style=TIME_STYLE
+              time/date format with -l; see TIME_STYLE below
+
+       -t     sort by time, newest first; see --time
+
+       -T, --tabsize=COLS
+              assume tab stops at each COLS instead of 8
+
+       -u     with  -lt: sort by, and show, access time; with -l: show access
+              time and sort by name; otherwise: sort by access  time,  newest
+              first
+
+       -U     do not sort; list entries in directory order
+
+       -v     natural sort of (version) numbers within text
+
+       -w, --width=COLS
+              set output width to COLS.  0 means no limit
+
+       -x     list entries by lines instead of by columns
+
+       -X     sort alphabetically by entry extension
+
+       -Z, --context
+              print any security context of each file
+
+       -1     list one file per line.  Avoid '\n' with -q or -b
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       The  SIZE  argument  is  an integer and optional unit (example: 10K is
+       10*1024).  Units are K,M,G,T,P,E,Z,Y (powers  of  1024)  or  KB,MB,...
+       (powers of 1000).  Binary prefixes can be used, too: KiB=K, MiB=M, and
+       so on.
+
+       The TIME_STYLE argument can be full-iso,  long-iso,  iso,  locale,  or
+       +FORMAT.   FORMAT  is  interpreted like in date(1).  If FORMAT is FOR-
+       MAT1<newline>FORMAT2, then FORMAT1 applies  to  non-recent  files  and
+       FORMAT2  to recent files.  TIME_STYLE prefixed with 'posix-' takes ef-
+       fect only outside the POSIX locale.  Also the  TIME_STYLE  environment
+       variable sets the default style to use.
+
+       Using  color to distinguish file types is disabled both by default and
+       with --color=never.  With --color=auto, ls emits color codes only when
+       standard output is connected to a terminal.  The LS_COLORS environment
+       variable can change the settings.  Use the dircolors  command  to  set
+       it.
+
+   Exit status:
+       0      if OK,
+
+       1      if minor problems (e.g., cannot access subdirectory),
+
+       2      if serious trouble (e.g., cannot access command-line argument).
+
+AUTHOR
+       Written by Richard M. Stallman and David MacKenzie.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright  ©  2020 Free Software Foundation, Inc.  License GPLv3+: GNU
+       GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to  change  and  redistribute  it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       Full documentation <https://www.gnu.org/software/coreutils/ls>
+       or available locally via: info '(coreutils) ls invocation'
+
+GNU coreutils 8.32              December 2024                           LS(1)
+[root@hostname01 ~]# cat > data.txt
+
+hello good morning
+[root@hostname01 ~]# cat > data.txt
+hii
+[root@hostname01 ~]# rm data.txt 
+rm: remove regular file 'data.txt'? y
+[root@hostname01 ~]# cat data.txt 2> errorlog.txt
+[root@hostname01 ~]# cat errorlog.txt
+cat: data.txt: No such file or directory
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Documents  errorlog.txt  lsdoc  newfriend  Public     users
+Desktop          Downloads  friends       Music  Pictures   Templates  Videos
+[root@hostname01 ~]# cat > data.txt
+Hello, this is a test.
+This is the second line of the file.
+[root@hostname01 ~]# $ cat data.txt
+bash: $: command not found...
+[root@hostname01 ~]# $ cat data.txt
+bash: $: command not found...
+[root@hostname01 ~]# ls
+anaconda-ks.cfg  Documents     friends  newfriend  Templates
+data.txt         Downloads     lsdoc    Pictures   users
+Desktop          errorlog.txt  Music    Public     Videos
+[root@hostname01 ~]# cat data.txt 
+Hello, this is a test.
+This is the second line of the file.
+[root@hostname01 ~]# cat data.txt 2> errorlog.txt
+Hello, this is a test.
+This is the second line of the file.
+[root@hostname01 ~]# cat errorlog.txt 
+[root@hostname01 ~]# cat errorlog.txt 
+[root@hostname01 ~]# cat data.txt 2> errorlog.txt
+Hello, this is a test.
+This is the second line of the file.
+[root@hostname01 ~]# cat errorlog.txt 
+[root@hostname01 ~]# rm data.txt 
+rm: remove regular file 'data.txt'? y
+[root@hostname01 ~]# 
+
